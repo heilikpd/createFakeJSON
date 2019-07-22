@@ -6,7 +6,8 @@
   "dependencies": {
     "rand": "^0.0.4",
     "faker": "^4.1.0",
-    "v4": "^0.0.1"
+    "v4": "^0.0.1",
+    "lodash": ">=4.17.13"
   },
   "devDependencies": {},
   "scripts": {
