@@ -1,8 +1,8 @@
 const faker = require("faker");
 const fs = require("fs");
 const generateCards = numberOfCards => {
-  let arr = [];
-  let numrOfCards = numberOfCards;
+  let resultData = [];
+  let numOfCards = numberOfCards;
   let moduleStatusName = [
     "In progress",
     "Submitted",
@@ -10,39 +10,41 @@ const generateCards = numberOfCards => {
     "Ready to release",
     "Done"
   ];
-  let keyName = [
+  let moduleKeyName = [
     "in_progress",
     "submitted",
     "high_priority",
     "ready_to_release",
     "done"
   ];
-  for (let i = 0; i < numrOfCards; i++) {
+  /* --------------------------------- */
+  for (let i = 0; i < numOfCards; i++) {
     //number of course cards
-    let guid = faker.random.uuid();
+    let guidOfCourse = faker.random.uuid();
     let courseTitle = faker.finance.accountName();
     let numberOfModules = faker.random.number({ min: 3, max: 10 });
     let modules = [];
     for (let j = 0; j < numberOfModules; j++) {
       let moduleGUID = faker.random.uuid();
-      let key = faker.random.number({ min: 0, max: 5 });
+      let statusKey = faker.random.number({ min: 0, max: 5 });
       let moduleTitle = faker.finance.currencyName();
       modules.push({
         guid: moduleGUID,
         title: moduleTitle,
         status: {
-          key: keyName[key],
-          title: moduleStatusName[key]
+          key: moduleKeyName[statusKey],
+          title: moduleStatusName[statusKey]
         }
       });
     }
-    arr.push({
-      guid: guid,
+    resultData.push({
+      guid: guidOfCourse,
       title: courseTitle,
       modules: modules
     });
   }
-  return arr;
+  /* --------------------------------- */
+  return resultData;
 };
 
 //call function(number of cards in JSON file)
