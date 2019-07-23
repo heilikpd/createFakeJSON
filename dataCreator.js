@@ -21,11 +21,11 @@ const generateCards = numberOfCards => {
     //number of course cards
     let guid = faker.random.uuid();
     let courseTitle = faker.finance.accountName();
-    let numberOfModules = Math.floor(Math.random() * (10 - 3) + 3);
+    let numberOfModules = faker.random.number({ min: 3, max: 10 });
     let modules = [];
     for (let j = 0; j < numberOfModules; j++) {
       let moduleGUID = faker.random.uuid();
-      let key = Math.floor(Math.random() * (5 - 0) + 0);
+      let key = faker.random.number({ min: 0, max: 5 });
       let moduleTitle = faker.finance.currencyName();
       modules.push({
         guid: moduleGUID,
@@ -44,7 +44,6 @@ const generateCards = numberOfCards => {
   }
   return arr;
 };
-
 
 //call function(number of cards in JSON file)
 let cardsData = generateCards(100);
