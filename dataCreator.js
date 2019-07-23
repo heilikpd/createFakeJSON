@@ -51,6 +51,6 @@ const generateCards = numberOfCards => {
 let cardsData = generateCards(100);
 //create file and write data to them
 fs.writeFile("cardsData.json", JSON.stringify(cardsData, null, "\t"), err => {
-  if (err) console.log(err);
-  console.log("Successfully Written to File.");
+  if (err) console.warn(err);
+  console.log("Successfully written your fake JSON file :)");
 });
