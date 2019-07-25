@@ -52,7 +52,7 @@ const generateCards = ({
     resultData.push({
       title: moduleStatusName[key],
       key: moduleKeyName[key],
-      courses: [courses]
+      courses: courses
     });
   }
 
